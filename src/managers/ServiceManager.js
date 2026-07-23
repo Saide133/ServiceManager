@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs'
+import { randomUUID } from 'crypto'
 
 class ServiceManager {
     constructor() {
@@ -6,8 +7,19 @@ class ServiceManager {
         this.services = JSON.parse(data)
     }
 
-    getServices() {
-        return this.services
+    getServices(category, available) {
+        let result = this.services
+
+        if (category) {
+            result = result.filter(s => s.category === category)
+        }
+
+        if (available !== undefined) {
+            const isAvailable = available === 'true' || available === true
+            result = result.filter(s => s.available === isAvailable)
+        }
+
+        return result
     }
 
     getServiceById(id) {
@@ -26,7 +38,7 @@ class ServiceManager {
         }
 
         const newService = {
-            id: this.services.length + 1,
+            id: randomUUID(),
             name,
             description,
             duration,
