@@ -1,0 +1,16 @@
+[
+  {
+    "id": "155a2f97-9652-47eb-9f74-e10a81f24dd0",
+    "clientName": "Ana Pérez",
+    "clientEmail": "ana@mail.com",
+    "date": "2026-07-30",
+    "time": "15:00",
+    "services": [
+      {
+        "service": "1",
+        "quantity": 2
+      }
+    ],
+    "status": "pending"
+  }
+]

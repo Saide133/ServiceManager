@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 import { randomUUID } from 'crypto'
 
 class ServiceManager {
@@ -48,6 +48,7 @@ class ServiceManager {
         }   
 
         this.services.push(newService)
+        this.saveServices()
         return newService
     }
 
@@ -63,6 +64,7 @@ class ServiceManager {
         }
 
         this.services[index] = { ...this.services[index], ...updatedData }
+        this.saveServices()
         return this.services[index]
     }
 
@@ -75,8 +77,14 @@ class ServiceManager {
 
         const deleted = this.services[index]
         this.services.splice(index, 1)
+        this.saveServices()
         return deleted
+    } 
+
+    saveServices() {
+        writeFileSync('./src/data/services.json', JSON.stringify(this.services, null, 2))
     }
+
 
 }
 
