@@ -66,6 +66,33 @@ class BookingManager {
 
     }
     
+    updateBooking(bid, updatedData) {
+        const index = this.bookings.findIndex(b => b.id === bid)
+        if (index === -1) {
+            return null
+        }
+
+        if (updatedData.id) {
+            delete updatedData.id
+        }
+
+        this.bookings[index] = { ...this.bookings[index], ...updatedData }
+        this.saveBookings()
+        return this.bookings[index]
+    }
+
+    deleteBooking(bid) {
+        const index = this.bookings.findIndex(b => b.id === bid)
+        if (index === -1) {
+            return null
+        }
+
+        const deletedBooking = this.bookings.splice(index, 1)[0]
+        this.saveBookings()
+        return deletedBooking
+    }
+
+
 }
 
 export default BookingManager

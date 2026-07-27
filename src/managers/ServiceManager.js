@@ -75,10 +75,9 @@ class ServiceManager {
             return null
         }
 
-        const deleted = this.services[index]
-        this.services.splice(index, 1)
+        const deletedService = this.services.splice(index, 1)[0]
         this.saveServices()
-        return deleted
+        return deletedService
     } 
 
     saveServices() {

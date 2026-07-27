@@ -33,4 +33,23 @@ router.post('/:bid/services/:sid', (req, res) => {
     res.status(200).json({ status: 'success', payload: updatedBooking })
 })
 
+router.put('/:bid', (req, res) => {
+    const { bid } = req.params
+    const updatedData = req.body
+    const updatedBooking = bookingManager.updateBooking(bid, updatedData)
+    if (!updatedBooking) {
+        return res.status(404).json({ status: 'error', message: 'Reserva no encontrada' })
+    }
+    res.status(200).json({ status: 'success', payload: updatedBooking })
+})
+
+router.delete('/:bid', (req, res) => {
+    const { bid } = req.params
+    const deletedBooking = bookingManager.deleteBooking(bid)
+    if (!deletedBooking) {
+        return res.status(404).json({ status: 'error', message: 'Reserva no encontrada' })
+    }
+    res.status(200).json({ status: 'success', payload: deletedBooking })
+})
+
 export default router
