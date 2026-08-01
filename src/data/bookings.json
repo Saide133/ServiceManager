@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "7f4e152a-10cc-41a8-bc5e-8399bf78f711",
+    "clientName": "Ana Pérez",
+    "clientEmail": "ana@mail.com",
+    "date": "2026-08-05",
+    "time": "15:00",
+    "services": [
+      {
+        "service": "61dbf68b-38e3-4b65-a35f-903dd8e8add0",
+        "quantity": 3
+      }
+    ],
+    "status": "pending"
+  }
+]

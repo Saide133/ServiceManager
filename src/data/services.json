@@ -1,38 +1,47 @@
 [
-    {
-        "id": "1",
-        "name": "Clase de Yoga",
-        "description": "Clase grupal de yoga para todos los niveles",
-        "duration": 60,
-        "price": 500,
-        "category": "mente y cuerpo",
-        "available": true
-    },
-    {
-        "id": "2",
-        "name": "Spinning",
-        "description": "Clase de ciclismo indoor de alta intensidad",
-        "duration": 45,
-        "price": 600,
-        "category": "cardio",
-        "available": true
-    },
-    {
-        "id": "3",
-        "name": "Pilates",
-        "description": "Clase de pilates con equipamiento especializado",
-        "duration": 50,
-        "price": 700,
-        "category": "mente y cuerpo",
-        "available": true
-    },
-    {
-        "id": "4",
-        "name": "Entrenamiento funcional",
-        "description": "Sesión de entrenamiento funcional en grupo",
-        "duration": 45,
-        "price": 550,
-        "category": "fuerza",
-        "available": false
-    }
+  {
+    "id": "1",
+    "name": "Clase de Yoga",
+    "description": "Clase grupal de yoga para todos los niveles",
+    "duration": 60,
+    "price": 500,
+    "category": "mente y cuerpo",
+    "available": true
+  },
+  {
+    "id": "2",
+    "name": "Spinning",
+    "description": "Clase de ciclismo indoor de alta intensidad",
+    "duration": 45,
+    "price": 600,
+    "category": "cardio",
+    "available": true
+  },
+  {
+    "id": "3",
+    "name": "Pilates",
+    "description": "Clase de pilates con equipamiento especializado",
+    "duration": 50,
+    "price": 700,
+    "category": "mente y cuerpo",
+    "available": true
+  },
+  {
+    "id": "4",
+    "name": "Entrenamiento funcional",
+    "description": "Sesión de entrenamiento funcional en grupo",
+    "duration": 45,
+    "price": 550,
+    "category": "fuerza",
+    "available": false
+  },
+  {
+    "name": "Pilates",
+    "description": "Clase de pilates",
+    "duration": 50,
+    "price": 800,
+    "category": "fuerza",
+    "available": true,
+    "id": "61dbf68b-38e3-4b65-a35f-903dd8e8add0"
+  }
 ]

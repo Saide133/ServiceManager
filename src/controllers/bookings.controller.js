@@ -1,12 +1,14 @@
-import ServiceManager from '../managers/ServiceManager.js'
-import BookingManager from '../managers/BookingManager.js'
-
-const serviceManager = new ServiceManager()
-const bookingManager = new BookingManager(serviceManager)
+import {
+    createBooking as createBookingService,
+    getBookingById as getBookingByIdService,
+    addServiceToBooking as addServiceToBookingService,
+    updateBooking as updateBookingService,
+    deleteBooking as deleteBookingService
+} from '../services/bookings.service.js'
 
 export const createBooking = (req, res) => {
     const bookingData = req.body
-    const newBooking = bookingManager.createBooking(bookingData)
+    const newBooking = createBookingService(bookingData)
     if (!newBooking) {
         return res.status(400).json({ status: 'error', message: 'Datos incompletos' })
     }
@@ -15,7 +17,7 @@ export const createBooking = (req, res) => {
 
 export const getBookingById = (req, res) => {
     const { bid } = req.params
-    const booking = bookingManager.getBookingById(bid)
+    const booking = getBookingByIdService(bid)
     if (!booking) {
         return res.status(404).json({ status: 'error', message: 'Reserva no encontrada' })
     }
@@ -24,7 +26,7 @@ export const getBookingById = (req, res) => {
 
 export const addServiceToBooking = (req, res) => {
     const { bid, sid } = req.params
-    const updatedBooking = bookingManager.addServiceToBooking(bid, sid)
+    const updatedBooking = addServiceToBookingService(bid, sid)
     if (!updatedBooking) {
         return res.status(404).json({ status: 'error', message: 'Reserva o servicio no encontrado' })
     }
@@ -34,7 +36,7 @@ export const addServiceToBooking = (req, res) => {
 export const updateBooking = (req, res) => {
     const { bid } = req.params
     const updatedData = req.body
-    const updatedBooking = bookingManager.updateBooking(bid, updatedData)
+    const updatedBooking = updateBookingService(bid, updatedData)
     if (!updatedBooking) {
         return res.status(404).json({ status: 'error', message: 'Reserva no encontrada' })
     }
@@ -43,7 +45,7 @@ export const updateBooking = (req, res) => {
 
 export const deleteBooking = (req, res) => {
     const { bid } = req.params
-    const deletedBooking = bookingManager.deleteBooking(bid)
+    const deletedBooking = deleteBookingService(bid)
     if (!deletedBooking) {
         return res.status(404).json({ status: 'error', message: 'Reserva no encontrada' })
     }
